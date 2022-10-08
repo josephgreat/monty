@@ -46,11 +46,9 @@ void exec_monty(FILE *montyfile)
 
 	while ((nread = getline(&line, &len, montyfile)) != -1)
 	{
-		/*printf("Hmm\n");*/
 		line_number++;
-		if (op_tok[0])
-			if (op_tok[0][0] == '#')
-				continue;
+		if (strchr(line, '#') != NULL)
+			continue;
 
 		if (is_empty(line) == -1)
 			continue;
