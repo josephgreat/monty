@@ -41,6 +41,7 @@ void usage_err(void);
 void file_err(char *);
 void malloc_err(void);
 void push_err(unsigned int);
+void pint_err(unsigned int);
 
 /*operation_handlers*/
 void exec_monty(FILE *);

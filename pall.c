@@ -22,3 +22,19 @@ void pall(stack_t **head, unsigned int line_number)
 	}
 	(void)line_number;
 }
+
+/**
+ * pint - prints the first element in a stack
+ * @head: stack head
+ * @line_number: line number of operatioin
+ * Return: nothing
+ */
+void pint(stack_t **head, unsigned int line_number)
+{
+	stack_t *current = *head;
+
+	if (!current)
+		pint_err(line_number);
+
+	fprintf(stdout, "%d\n", current->n);
+}

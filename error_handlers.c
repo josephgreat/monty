@@ -56,3 +56,15 @@ void push_err(unsigned int line_num)
 	fprintf(stderr, "L%d: usage: push integer\n", line_num);
 	exit(EXIT_FAILURE);
 }
+
+
+/**
+ * pint_err - exit on empty stack
+ * @line_num
+ * Return: EXIT_FAILURE
+ */
+void pint_err(unsigned int line_num)
+{
+	fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
+	exit(EXIT_FAILURE);
+}
