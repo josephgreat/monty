@@ -15,8 +15,8 @@ void push(stack_t **head, unsigned int line_number)
 	if (!newNode)
 		malloc_err();
 
-	if (validatedArg(op_tok[1]) == -1)
-		instruction_err(line_number, op_tok[0]);
+	if (op_tok[1] == NULL || validatedArg(op_tok[1]) == -1)
+		push_err(line_number);
 
 	newNode->n = validatedArg(op_tok[1]);
 	newNode->prev = NULL;

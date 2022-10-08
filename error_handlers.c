@@ -46,3 +46,13 @@ void instruction_err(unsigned int line_num, char *opcode)
 }
 
 
+/**
+ * push_err - exit on invalid integer or argument
+ * @line_num
+ * Return: EXIT_FAILURE
+ */
+void push_err(unsigned int line_num)
+{
+	fprintf(stderr, "L%d: usage: push integer\n", line_num);
+	exit(EXIT_FAILURE);
+}
