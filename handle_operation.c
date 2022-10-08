@@ -64,6 +64,6 @@ void exec_monty(FILE *montyfile)
 		op_tok[0] = NULL;
 		op_tok[1] = NULL;
 	}
-
+	free_stack(&stack);
 	free(line);
 }

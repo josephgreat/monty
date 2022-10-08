@@ -57,4 +57,7 @@ void parse_token(char *);
 int is_empty(char *);
 int validatedArg(char *);
 
+/*memory management*/
+void free_stack(stack_t **);
+
 #endif
