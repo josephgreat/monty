@@ -70,4 +70,27 @@ void add(stack_t **head, unsigned int line_number)
 	*head = nextNode;
 }
 
+/**
+ * sub - subtracts the top two elements in a stack,
+ * replaces the second with the difference and removes the first
+ * @head: stack head
+ * @line_number: line number of operatioin
+ * Return: nothing
+ */
+
+void sub(stack_t **head, unsigned int line_number)
+{
+	int diff;
+	stack_t *nextNode;
+
+	if (!*head || !(*head)->next)
+		func_err(line_number, "can't sub, stack too short");
+
+	nextNode = (*head)->next;
+	diff = nextNode->n - (*head)->n;
+	nextNode->n = diff;
+	free(*head);
+	*head = nextNode;
+}
+
 

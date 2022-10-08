@@ -47,7 +47,8 @@ void instruction_err(unsigned int line_num, char *opcode)
 
 /**
  * func_err - exit on failure to meet specifications
- * @line_num
+ * @line_num: line number
+ * @err_txt: error text
  * Return: EXIT_FAILURE
  */
 void func_err(unsigned int line_num, char *err_txt)
