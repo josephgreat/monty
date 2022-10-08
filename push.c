@@ -27,3 +27,24 @@ void push(stack_t **head, unsigned int line_number)
 	*head = newNode;
 	/*printf("Pushed\n");*/
 }
+
+/**
+ * swap - swaps the top two elements in a stack
+ * @head: stack head
+ * @line_number: line number of operatioin
+ * Return: nothing
+ */
+
+void swap(stack_t **head, unsigned int line_number)
+{
+	int temp_num;
+
+	if (!*head || !(*head)->next)
+		func_err(line_number, "can't swap, stack too short");
+
+	temp_num = (*head)->next->n;
+	(*head)->next->n = (*head)->n;
+	(*head)->n = temp_num;
+}
+
+

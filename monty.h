@@ -50,11 +50,15 @@ void exec_monty(FILE *);
 void (*get_op_func(char *))(stack_t **, unsigned int);
 
 /*operation_functions*/
+
+/*functions_1*/
 void push(stack_t **, unsigned int);
+void swap(stack_t **, unsigned int);
+
+/*function_2*/
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
-
 
 /*utils*/
 void parse_token(char *);
