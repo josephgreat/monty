@@ -48,7 +48,7 @@ void pint(stack_t **head, unsigned int line_number)
 void pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
-	
+
 	if (!*head)
 		func_err(line_number, "can't pop an empty stack");
 

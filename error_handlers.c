@@ -52,6 +52,6 @@ void instruction_err(unsigned int line_num, char *opcode)
  */
 void func_err(unsigned int line_num, char *err_txt)
 {
-	fprintf(stderr, "L%d: usage: %s\n", line_num, err_txt);
+	fprintf(stderr, "L%d: %s\n", line_num, err_txt);
 	exit(EXIT_FAILURE);
 }
