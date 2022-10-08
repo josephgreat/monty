@@ -47,4 +47,27 @@ void swap(stack_t **head, unsigned int line_number)
 	(*head)->n = temp_num;
 }
 
+/**
+ * add - adds the top two elements in a stack,
+ * replaces the second with the sum and removes the first
+ * @head: stack head
+ * @line_number: line number of operatioin
+ * Return: nothing
+ */
+
+void add(stack_t **head, unsigned int line_number)
+{
+	int sum;
+	stack_t *nextNode;
+
+	if (!*head || !(*head)->next)
+		func_err(line_number, "can't add, stack too short");
+
+	nextNode = (*head)->next;
+	sum = (*head)->n + nextNode->n;
+	nextNode->n = sum;
+	free(*head);
+	*head = nextNode;
+}
+
 
