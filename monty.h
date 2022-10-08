@@ -60,6 +60,7 @@ void add(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
+void nop(stack_t **, unsigned int);
 
 /*utils*/
 void parse_token(char *);
