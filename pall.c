@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <stdio.h>
 
 /**
  * pall - prints all elements in a stack
@@ -34,7 +33,28 @@ void pint(stack_t **head, unsigned int line_number)
 	stack_t *current = *head;
 
 	if (!current)
-		pint_err(line_number);
+		func_err(line_number, "can't pint, stack empty");
 
 	fprintf(stdout, "%d\n", current->n);
 }
+
+/**
+ * pop - prints all elements in a stack
+ * @head: stack head
+ * @line_number: line number of operatioin
+ * Return: nothing
+ */
+
+void pop(stack_t **head, unsigned int line_number)
+{
+	stack_t *temp;
+	
+	if (!*head)
+		func_err(line_number, "can't pop an empty stack");
+
+	temp = (*head)->next;
+	free(*head);
+	*head = temp;
+}
+
+

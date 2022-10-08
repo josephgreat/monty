@@ -1,6 +1,5 @@
 #include "monty.h"
-#include <stdlib.h>
-#include <stdio.h>
+
 /**
  * push - adds an element to a stack
  * @head: head stack
@@ -16,7 +15,7 @@ void push(stack_t **head, unsigned int line_number)
 		malloc_err();
 
 	if (op_tok[1] == NULL || validatedArg(op_tok[1]) == -1)
-		push_err(line_number);
+		func_err(line_number, "usage: push integer");
 
 	newNode->n = validatedArg(op_tok[1]);
 	newNode->prev = NULL;

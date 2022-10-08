@@ -1,8 +1,5 @@
 #define _POSIX_C_SOURCE 200809L
 #include "monty.h"
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 
 /**
  * get_op_func - get the operation function to be performed
@@ -17,6 +14,7 @@ void (*get_op_func(char *opcode))(stack_t**, unsigned int)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	int i;

@@ -4,6 +4,9 @@
 extern char *op_tok[2];
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -40,8 +43,7 @@ void instruction_err(unsigned int, char *);
 void usage_err(void);
 void file_err(char *);
 void malloc_err(void);
-void push_err(unsigned int);
-void pint_err(unsigned int);
+void func_err(unsigned int, char *);
 
 /*operation_handlers*/
 void exec_monty(FILE *);
@@ -51,6 +53,8 @@ void (*get_op_func(char *))(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
+void pop(stack_t **, unsigned int);
+
 
 /*utils*/
 void parse_token(char *);

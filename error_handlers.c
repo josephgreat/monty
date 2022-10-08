@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "monty.h"
 
 /**
  * usage_err - exit on usage error
@@ -47,24 +46,12 @@ void instruction_err(unsigned int line_num, char *opcode)
 
 
 /**
- * push_err - exit on invalid integer or argument
+ * func_err - exit on failure to meet specifications
  * @line_num
  * Return: EXIT_FAILURE
  */
-void push_err(unsigned int line_num)
+void func_err(unsigned int line_num, char *err_txt)
 {
-	fprintf(stderr, "L%d: usage: push integer\n", line_num);
-	exit(EXIT_FAILURE);
-}
-
-
-/**
- * pint_err - exit on empty stack
- * @line_num
- * Return: EXIT_FAILURE
- */
-void pint_err(unsigned int line_num)
-{
-	fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
+	fprintf(stderr, "L%d: usage: %s\n", line_num, err_txt);
 	exit(EXIT_FAILURE);
 }

@@ -1,8 +1,5 @@
 #include "monty.h"
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h>
+
 /**
  * parse_token - gets the commands and arguments in each line in the file
  * @line: current line in file
