@@ -87,6 +87,9 @@ void divide(stack_t **head, unsigned int line_number)
 	if (!*head || !(*head)->next)
 		func_err(line_number, "can't div, stack too short");
 
+	if ((*head)->n == 0)
+		func_err(line_number, "division by zero");
+
 	nextNode = (*head)->next;
 	quotient = nextNode->n / (*head)->n;
 	nextNode->n = quotient;
@@ -110,6 +113,9 @@ void mod(stack_t **head, unsigned int line_number)
 
 	if (!*head || !(*head)->next)
 		func_err(line_number, "can't add, stack too short");
+
+	if ((*head)->n == 0)
+		func_err(line_number, "division by zero");
 
 	nextNode = (*head)->next;
 	remainder = nextNode->n % (*head)->n;

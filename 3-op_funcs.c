@@ -34,6 +34,8 @@ void pstr(stack_t **head, unsigned int line_number)
 	{
 		if (current->n == 0)
 			break;
+		if (current->n < 0 || current->n > 127)
+			break;
 
 		fprintf(stdout, "%c", current->n - 48 + '0');
 		current = current->next;
