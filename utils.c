@@ -33,15 +33,15 @@ int validatedArg(char *arg)
 
 	while (arg[i])
 	{
-		if (arg[i] == '-')
+		if (i == 0 && arg[i] == '-')
 		{
 			i++;
 			continue;
 		}
-		else if (toupper(arg[i]) != tolower(arg[i]))
+		if (arg[i] < '0' || arg[i] > '9')
+		{
 			return (-1);
-		else if (arg[i] < '0' || arg[i] > '9')
-			return (-1);
+		}
 		i++;
 	}
 	return (atoi(arg));

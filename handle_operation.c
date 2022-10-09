@@ -17,16 +17,24 @@ void (*get_op_func(char *opcode))(stack_t**, unsigned int)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		{"nop", nop},
 		{"sub", sub},
+		{"mul", mul},
+		{"div", divide},
+		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		/*{"rotl", rotl},*/
+		/*{"rotr", rotr},*/
+		{"nop", nop},
+		{"#", nop},
 		{NULL, NULL}
 	};
 	int i;
-/*printf("%s, %s\n", opcode, op_tok[0]);*/
+
 	for (i = 0; op_funcs[i].opcode; i++)
 		if (strcmp(opcode, op_funcs[i].opcode) == 0)
 			return (op_funcs[i].f);
-/*printf("NULL\n");*/
+
 	return (NULL);
 }
 
@@ -49,20 +57,21 @@ void exec_monty(FILE *montyfile)
 	while ((nread = getline(&line, &len, montyfile)) != -1)
 	{
 		line_number++;
-		if (strchr(line, '#') != NULL)
-			continue;
-
 		if (is_empty(line) == -1)
 			continue;
-		/*printf("line %d\n", line_number);*/
+
 		parse_token(line);
-		/*printf("parsed_token\n");*/
+
+		if (op_tok[0] && op_tok[0][0] == '#')
+			strcpy(op_tok[0], "#");
+
+
 		op_func = get_op_func(op_tok[0]);
 		if (op_func == NULL)
 			instruction_err(line_number, op_tok[0]);
 
 		op_func(&stack, line_number);
-/*printf("Done\n");printf("%s\n", op_tok[-1])*/
+
 		op_tok[0] = NULL;
 		op_tok[1] = NULL;
 	}
