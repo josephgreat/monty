@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define DELIM " \n\t\a"
+
 extern char *op_tok[2];
 
 #include <stdio.h>
@@ -9,7 +10,7 @@ extern char *op_tok[2];
 #include <ctype.h>
 
 /**
- * struct stack_s - doubly linked list representation of a stack (or queue)
+ * struct stack_s - doubly linked list representaion of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
@@ -51,16 +52,23 @@ void (*get_op_func(char *))(stack_t **, unsigned int);
 
 /*operation_functions*/
 
-/*functions_1*/
+/*1-op_funcs*/
 void push(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
-void add(stack_t **, unsigned int);
-void sub(stack_t **, unsigned int);
-
-/*function_2*/
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
+
+/*2-op_funcs*/
+void add(stack_t **, unsigned int);
+void sub(stack_t **, unsigned int);
+void divide(stack_t **, unsigned int);
+void mul(stack_t **, unsigned int);
+void mod(stack_t **, unsigned int);
+
+/*2-op_funcs*/
+void pchar(stack_t **, unsigned int);
+void pstr(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 
 /*utils*/
