@@ -9,25 +9,36 @@
 
 void push(stack_t **head, unsigned int line_number)
 {
-	stack_t *newNode = malloc(sizeof(stack_t));
-
-	if (!newNode)
-		malloc_err();
+	stack_t *current = *head;
+	stack_t *newNode;
 
 	if (op_tok[1] == NULL || validatedArg(op_tok[1]) == -1)
 		func_err(line_number, "usage: push integer");
 
-	newNode->n = validatedArg(op_tok[1]);
-	newNode->prev = NULL;
-	if (!*head)
-		newNode->next = NULL;
+	newNode = init_node(validatedArg(op_tok[1]));
+	
+	if (strcmp(op_tok[2], "stack") == 0)
+	{
+		if (*head)
+		{
+			newNode->next = *head;
+			(*head)->prev = newNode;
+		}
+		*head = newNode;
+	}
 	else
 	{
-		newNode->next = *head;
-		(*head)->prev = newNode;
-	}
+		if (!*head)
+		{
+			*head = newNode;
+			return;
+		}
 
-	*head = newNode;
+		while (current->next)
+			current = current->next;
+		current->next = newNode;
+		newNode->prev = current;
+	}
 }
 
 

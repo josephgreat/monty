@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *op_tok[2] = {NULL, NULL};
+char *op_tok[3] = {NULL, NULL, "stack"};
 
 /**
  * main - checks code

@@ -1,8 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
-#define DELIM " \n\t\a"
 
-extern char *op_tok[2];
+#define DELIM " \n\t\a"
+#define STACK 0
+#define QUEUE 1
+
+extern char *op_tok[3];
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -71,7 +74,11 @@ void pchar(stack_t **, unsigned int);
 void pstr(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 void rotr(stack_t **, unsigned int);
+
+/*4-op_funcs*/
+void set_mode(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
+stack_t *init_node(int);
 
 /*utils*/
 void parse_token(char *);
