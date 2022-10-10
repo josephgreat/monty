@@ -1,8 +1,6 @@
-push 92
-pchar
-push 3
-push 0
-mod
+push 3 
+pstr
+pp
 push 1
 # add
 push 2

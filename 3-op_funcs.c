@@ -45,3 +45,56 @@ void pstr(stack_t **head, unsigned int line_number)
 
 	(void)line_number;
 }
+
+
+/**
+ * rotl - rotates the stack to the top
+ * @head: head stack
+ * @line_number: line number of current operation
+ * Return: nothing
+ */
+
+void rotl(stack_t **head, unsigned int line_number)
+{
+	stack_t *current = *head;
+	int top;
+
+	top = (*head)->n;
+
+	while (current->next)
+	{
+		current->n = current->next->n;
+		current = current->next;
+	}
+	current->n = top;
+
+	(void)line_number;
+}
+
+
+/**
+ * rotr - rotates the stack to the bottom
+ * @head: head stack
+ * @line_number: line number of current operation
+ * Return: nothing
+ */
+
+void rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *current = *head;
+	int bottom;
+
+	while (current->next)
+		current = current->next;
+
+	bottom = current->n;
+
+	while (current->prev)
+	{
+		current->n = current->prev->n;
+		current = current->prev;
+	}
+	current->n = bottom;
+
+	(void)line_number;
+}
