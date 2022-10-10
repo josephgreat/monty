@@ -112,7 +112,7 @@ void mod(stack_t **head, unsigned int line_number)
 	stack_t *nextNode;
 
 	if (!*head || !(*head)->next)
-		func_err(line_number, "can't add, stack too short");
+		func_err(line_number, "can't mod, stack too short");
 
 	if ((*head)->n == 0)
 		func_err(line_number, "division by zero");
