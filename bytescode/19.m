@@ -1,3 +1,4 @@
+pstr
 push 130
 push 92
 push 55

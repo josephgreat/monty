@@ -15,7 +15,7 @@ void pchar(stack_t **head, unsigned int line_number)
 	if ((*head)->n < 0 || (*head)->n > 127)
 		func_err(line_number, "can't pchar, value out of range");
 
-	fprintf(stdout, "%c\n", (*head)->n - 48 + '0');
+	fprintf(stdout, "%c\n", (*head)->n);
 }
 
 
@@ -30,14 +30,10 @@ void pstr(stack_t **head, unsigned int line_number)
 {
 	stack_t *current = *head;
 
-	while (current)
+	while (current && current->n != 0 &&
+			(current->n > 0 || current->n <= 127))
 	{
-		if (current->n == 0)
-			break;
-		if (current->n < 0 || current->n > 127)
-			break;
-
-		fprintf(stdout, "%c", current->n - 48 + '0');
+		fprintf(stdout, "%c", current->n);
 		current = current->next;
 	}
 
@@ -56,9 +52,13 @@ void pstr(stack_t **head, unsigned int line_number)
 
 void rotl(stack_t **head, unsigned int line_number)
 {
-	stack_t *current = *head;
+	stack_t *current;
 	int top;
 
+	if (!*head)
+		return;
+
+	current = *head;
 	top = (*head)->n;
 
 	while (current->next)
@@ -81,9 +81,13 @@ void rotl(stack_t **head, unsigned int line_number)
 
 void rotr(stack_t **head, unsigned int line_number)
 {
-	stack_t *current = *head;
+	stack_t *current;
 	int bottom;
 
+	if (!*head)
+		return;
+
+	current = *head;
 	while (current->next)
 		current = current->next;
 
